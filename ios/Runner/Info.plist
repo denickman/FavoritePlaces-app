@@ -11,6 +11,13 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Take your favorite place image.</string>
 
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location when in use usage description.</string>
+
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Location always and when in usage description.</string>
+
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
