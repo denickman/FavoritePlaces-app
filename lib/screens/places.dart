@@ -43,9 +43,11 @@ class _PlacesScreenState extends ConsumerState<PlacesScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
+        // FutureBuilder — позволяет строить интерфейс в зависимости от состояния асинхронной 
+        // операции (Future).
         child: FutureBuilder(
-          future: _placesFuture,
-          builder: (ctx, snapshot) =>
+          future: _placesFuture, //  Асинхронная операция (Future)
+          builder: (ctx, snapshot) => // Функция, которая строит UI в зависимости от состояния Future
               snapshot.connectionState == ConnectionState.waiting
               ? const Center(child: CircularProgressIndicator())
               : PlacesList(places: userPlaces),
@@ -54,3 +56,11 @@ class _PlacesScreenState extends ConsumerState<PlacesScreen> {
     );
   }
 }
+
+/*
+FutureBuilder - 
+Через snapshot.connectionState можно проверить:
+ConnectionState.none — Future ещё не запущен
+ConnectionState.waiting — Future выполняется (мы ждём результат)
+ConnectionState.done — Future завершился
+*/
