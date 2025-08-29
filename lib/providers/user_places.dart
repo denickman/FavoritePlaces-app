@@ -6,8 +6,12 @@ import 'dart:io';
 class UserPlacesNotifier extends StateNotifier<List<Place>> {
   UserPlacesNotifier() : super(const []);
 
-  void addPlace(String title, File image) {
-    final newPlace = Place(title: title, image: image, location: PlaceLocation(latitude: 123.43, longitude: -23.44, address: "NO ADREWS"));
+  void addPlace(String title, File image, PlaceLocation location) {
+    final newPlace = Place(
+      title: title, 
+      image: image, 
+      location: location,
+      );
     state = [newPlace, ...state];
   }
 }
