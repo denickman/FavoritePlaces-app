@@ -90,3 +90,58 @@ final userPlacesProvider =
     StateNotifierProvider<UserPlacesNotifier, List<Place>>(
       (ref) => UserPlacesNotifier(),
     );
+
+
+
+
+
+
+
+/*
+
+// Загрузка всех мест из базы
+  void loadPlaces() async {
+    final dataList = await DatabaseService.getPlaces();
+
+    final places = dataList.map((row) => Place(
+          id: row['id'] as String,
+          title: row['title'] as String,
+          image: File(row['image'] as String),
+          location: PlaceLocation(
+            latitude: row['lat'] as double,
+            longitude: row['lng'] as double,
+            address: row['address'] as String,
+          ),
+        )).toList();
+
+    state = places; // триггер обновления для всех watch
+  }
+
+  // Добавление нового места
+  void addPlace(String title, File image, PlaceLocation location) async {
+    final appDir = await syspath.getApplicationDocumentsDirectory();
+    final filename = path.basename(image.path);
+    final savedImage = await image.copy('${appDir.path}/$filename');
+
+    final newPlace = Place(
+      title: title,
+      image: savedImage,
+      location: location,
+    );
+
+    // Вставка через сервис
+    await DatabaseService.insertPlace({
+      'id': newPlace.id,
+      'title': newPlace.title,
+      'image': newPlace.image.path,
+      'lat': newPlace.location.latitude,
+      'lng': newPlace.location.longitude,
+      'address': newPlace.location.address,
+    });
+
+    state = [newPlace, ...state]; // обновляем состояние
+  }
+
+
+
+*/
